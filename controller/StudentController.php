@@ -53,6 +53,35 @@ class StudentController
         require './views/students/edit.php';
 
     }
+
+    public function create()
+{
+    // Cargar la vista para crear un nuevo estudiante
+    require './views/students/create.php';
+}
+
+public function store()
+{
+    // Validar los datos enviados por el formulario
+    $name = $_POST['name'] ?? null;
+    $age = $_POST['age'] ?? null;
+    $grade = $_POST['grade'] ?? null;
+
+    if ($name && $age && $grade) {
+        // Crear un nuevo estudiante
+        $newStudent = new Student(null, $name, $age, $grade);
+
+        // Añadir el estudiante al modelo simulado
+        Student::add($newStudent);
+
+        // Redirigir al índice
+        header('Location: index.php');
+        exit;
+    } else {
+        echo "Por favor, completa todos los campos.";
+    }
+}
+
 }
 
 ?>

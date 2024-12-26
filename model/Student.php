@@ -1,4 +1,4 @@
-<?php 
+<?php
 class Student
 {
     private $id;
@@ -6,8 +6,8 @@ class Student
     private $age;
     private $grade;
 
-      // Simulación de una base de datos como propiedad estática
-      private static $students = [
+    // Simulación de una base de datos como propiedad estática
+    private static $students = [
         ['id' => 1, 'name' => 'Juan', 'age' => 20, 'grade' => 'A'],
         ['id' => 2, 'name' => 'Ana', 'age' => 22, 'grade' => 'B'],
         ['id' => 3, 'name' => 'Carlos', 'age' => 21, 'grade' => 'C'],
@@ -22,7 +22,7 @@ class Student
         $this->grade = $grade;
     }
 
-    
+
 
     // Método para obtener todos los estudiantes
     public static function getAll()
@@ -60,19 +60,51 @@ class Student
         }
         return false;
     }
-    
+
+    // Método para añadir un nuevo estudiante
+    public static function add($student)
+    {
+        self::$students[] = [
+            'id' => count(self::$students) + 1, // Generar un nuevo ID
+            'name' => $student->getName(),
+            'age' => $student->getAge(),
+            'grade' => $student->getGrade(),
+        ];
+    }
+
+
 
 
     // Métodos getter para obtener los atributos del estudiante
-    public function getId() { return $this->id; }
-    public function getName() { return $this->name; }
-    public function getAge() { return $this->age; }
-    public function getGrade() { return $this->grade; }
+    public function getId()
+    {
+        return $this->id;
+    }
+    public function getName()
+    {
+        return $this->name;
+    }
+    public function getAge()
+    {
+        return $this->age;
+    }
+    public function getGrade()
+    {
+        return $this->grade;
+    }
 
 
     // Métodos setter
-    public function setName($name) { $this->name = $name; }
-    public function setAge($age) { $this->age = $age; }
-    public function setGrade($grade) { $this->grade = $grade; }
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+    public function setAge($age)
+    {
+        $this->age = $age;
+    }
+    public function setGrade($grade)
+    {
+        $this->grade = $grade;
+    }
 }
-?>

@@ -24,8 +24,11 @@
                     <td><?= $student->getAge(); ?></td>
                     <td><?= $student->getGrade(); ?></td>
                     <td><a href="?action=show&id=<?= $student->getId(); ?>">Ver Detalles</a></td>
+                  
+
                 </tr>
             <?php endforeach; ?>
+            <td><a href="?action=create">Crear Nuevo Estudiante</a></td> 
         </tbody>
     </table>
 </body>
